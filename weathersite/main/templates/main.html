@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Weather{% endblock %}
+
+{% block text_header %}Weather{% endblock %}
+
+{% block content %}
+<div class="weather-content">
+    <div class="weather-city">
+        <h2>{{ city }} {{ temp }}°</h2>
+    </div>
+    <div class="weather-information">
+        <div class="weather-temperature">
+            temperature = {{ temp }}°
+            temperature feels like = {{ temp_feels_like }}°
+            temperature min = {{ temp_min }}°
+            temperature max = {{ temp_max }}°
+        </div>
+        <div class="weather-type">
+            weather = {{ weather_description }}
+        </div>
+    </div>
+</div>
+{% endblock %}
