@@ -11,15 +11,21 @@ def main(request):
     if request.method == "POST":
         form = CityForm(request.POST)
         if form.is_valid():
-            weather_description, temp, temp_feels_like, temp_min, \
-                temp_max, city = get_weather(form.cleaned_data['city'])
-            return render(request, 'main.html', {'form': form, 'weather_description': weather_description,
-                                                 'temp': temp, 'temp_feels_like': temp_feels_like,
-                                                 'temp_min': temp_min, 'temp_max': temp_max, 'city': city})
+            today_weather, today_afternoon_weather, today_night_weather, tomorrow_morning_weather, \
+                tomorrow_afternoon_weather, tomorrow_night_weather, day_after_tomorrow_morning_weather, \
+                day_after_tomorrow_afternoon_weather, day_after_tomorrow_night_weather, \
+                city = get_weather(form.cleaned_data['city'])
+            return render(request, 'main.html', {'form': form, 'weather_description': today_weather[4],
+                                                 'temp': today_weather[0], 'temp_feels_like': today_weather[1],
+                                                 'temp_min': today_weather[2], 'temp_max': today_weather[3],
+                                                 'city': city})
     else:
         form = CityForm()
-        weather_description, temp, temp_feels_like, temp_min, \
-            temp_max, city = get_weather('Kiev')
-        return render(request, 'main.html', {'form': form, 'weather_description': weather_description,
-                                             'temp': temp, 'temp_feels_like': temp_feels_like,
-                                             'temp_min': temp_min, 'temp_max': temp_max, 'city': city})
+        today_weather, today_afternoon_weather, today_night_weather, tomorrow_morning_weather, \
+            tomorrow_afternoon_weather, tomorrow_night_weather, day_after_tomorrow_morning_weather, \
+            day_after_tomorrow_afternoon_weather, day_after_tomorrow_night_weather, \
+            city = get_weather('Kiev')
+        return render(request, 'main.html', {'form': form, 'weather_description': today_weather[4],
+                                             'temp': today_weather[0], 'temp_feels_like': today_weather[1],
+                                             'temp_min': today_weather[2], 'temp_max': today_weather[3],
+                                             'city': city})

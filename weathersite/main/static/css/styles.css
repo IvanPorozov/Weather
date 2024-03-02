@@ -47,6 +47,10 @@ header {
     cursor: pointer;
 }
 
+.weather-city{
+    padding-right: 5px;
+}
+
 .weather-content {
     margin-right: 75px;
     margin-left: 75px;
@@ -60,6 +64,7 @@ header {
 .weather-information{
     display: flex;
     justify-content: space-between;
+    height: 150px;
 }
 
 .weather-temperature{
@@ -74,6 +79,7 @@ header {
     border-radius: 20px;
     background: white;
     box-shadow: 5px 5px 10px #a9a9a9;
+    width: 1500px;
 }
 
 .weather-type{

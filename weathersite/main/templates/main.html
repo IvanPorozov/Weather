@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}Weather{% endblock %}
 
 {% block text_header %}Weather{% endblock %}
@@ -15,10 +15,25 @@
             temperature feels like = {{ temp_feels_like }}°
             temperature min = {{ temp_min }}°
             temperature max = {{ temp_max }}°
+            weather_description = {{ weather_description }}
         </div>
-        <div class="weather-type">
-            weather = {{ weather_description }}
-        </div>
+        {% if weather_description == 'broken clouds' or weather_description == 'overcast clouds'%}
+            <img class="weather-type" src="{% static 'images/broken_clouds.png' %}" alt="Cloudy">
+        {% elif weather_description == 'clear sky' %}
+            <img class="weather-type" src="{% static 'images/clear_sky.jpg' %}" alt="Rainy">
+        {% elif weather_description == 'few clouds' %}
+            <img class="weather-type" src="{% static 'images/few_clouds.jpg' %}" alt="Sunny">
+        {% elif weather_description == 'rain' %}
+            <img class="weather-type" src="{% static 'images/rain.jpg' %}" alt="Sunny">
+        {% elif weather_description == 'scattered clouds' %}
+            <img class="weather-type" src="{% static 'images/scattered_clouds.jpg' %}" alt="Sunny">
+        {% elif weather_description == 'shower rain' %}
+            <img class="weather-type" src="{% static 'images/shower_rain.jpg' %}" alt="Sunny">
+        {% elif weather_description == 'snow' %}
+            <img class="weather-type" src="{% static 'images/snow.jpg' %}" alt="Sunny">
+        {% else %}
+            <img class="weather-type" src="{% static 'images/thunderstorm.jpg' %}" alt="Weather">
+        {% endif %}
     </div>
 </div>
 {% endblock %}
