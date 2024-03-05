@@ -9,31 +9,92 @@
     <div class="weather-city">
         <h2>{{ city }} {{ temp }}°</h2>
     </div>
-    <div class="weather-information">
-        <div class="weather-temperature">
-            temperature = {{ temp }}°
-            temperature feels like = {{ temp_feels_like }}°
-            temperature min = {{ temp_min }}°
-            temperature max = {{ temp_max }}°
-            weather_description = {{ weather_description }}
+        <div class="today-weather-temperature">
+            <div class="today">
+                <div class="time">Today {{ temp }}°</div>
+                <div class="weather-block">
+                    <div class="text-block">
+                        <p>
+                            <strong>{{ day }}, {{ month }}</strong>
+                        </p>
+                        <p>
+                            feels like {{ today_temp_feels_like }}°, {{ today_weather_description }}.
+                        </p>
+                    </div>
+                    <div class="img-block">
+                        {% if today_weather_description == 'broken clouds' or today_weather_description == 'overcast clouds' or today_weather_description == 'few clouds' or today_weather_description == 'scattered clouds'%}
+                            <img class="img-weather" src="{% static 'images/hidden_sun.png' %}" alt="hidden_sun">
+                        {% elif  today_weather_description == 'clear sky'%}
+                            <img class="img-weather" src="{% static 'images/sun.png' %}" alt="sun">
+                        {% elif  today_weather_description == 'rain' or today_weather_description == 'shower rain' or today_weather_description == 'light rain' %}
+                            <img class="img-weather" src="{% static 'images/rain.png' %}" alt="rain">
+                        {% elif  today_weather_description == 'snow'%}
+                            <img class="img-weather" src="{% static 'images/rain.png' %}" alt="rain">
+                        {% elif  today_weather_description == 'thunderstorm'%}
+                            <img class="img-weather" src="{% static 'images/rain.png' %}" alt="rain">
+                        {% else %}
+                            <img class="img-weather" src="{% static 'images/sun.png' %}" alt="sun">
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
+            <div class="tomorrow">
+                <div class="time">Tomorrow {{ tomorrow_afternoon_temp }}°</div>
+                <div class="weather-block">
+                    <div class="text-block">
+                        <p>
+                            <strong>{{ tomorrow }}, {{ month }}</strong>
+                        </p>
+                        <p>
+                            feels like {{ tomorrow_afternoon_temp_feels_like }}°, {{ tomorrow_afternoon_weather_description }}.
+                        </p>
+                    </div>
+                    <div class="img-block">
+                        {% if tomorrow_afternoon_weather_description == 'broken clouds' or tomorrow_afternoon_weather_description == 'overcast clouds' or tomorrow_afternoon_weather_description == 'few clouds' or tomorrow_afternoon_weather_description == 'scattered clouds'%}
+                            <img class="img-weather" src="{% static 'images/hidden_sun.png' %}" alt="hidden_sun">
+                        {% elif  tomorrow_afternoon_weather_description == 'clear sky'%}
+                            <img class="img-weather" src="{% static 'images/sun.png' %}" alt="sun">
+                        {% elif  tomorrow_afternoon_weather_description == 'rain' or today_weather_description == 'shower rain' or today_weather_description == 'light rain' %}
+                            <img class="img-weather" src="{% static 'images/rain.png' %}" alt="rain">
+                        {% elif  tomorrow_afternoon_weather_description == 'snow'%}
+                            <img class="img-weather" src="{% static 'images/rain.png' %}" alt="rain">
+                        {% elif  tomorrow_afternoon_weather_description == 'thunderstorm'%}
+                            <img class="img-weather" src="{% static 'images/rain.png' %}" alt="rain">
+                        {% else %}
+                            <img class="img-weather" src="{% static 'images/sun.png' %}" alt="sun">
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="day-after-tomorrow">
+                <div class="time">Tomorrow {{ dat_temp }}°</div>
+                <div class="weather-block">
+                    <div class="text-block">
+                        <p>
+                            <strong>{{ dat }}, {{ month }}</strong>
+                        </p>
+                        <p>
+                            feels like {{ dat_afternoon_temp_feels_like }}°, {{ dat_afternoon_weather_description }}.
+                        </p>
+                    </div>
+                    <div class="img-block">
+                        {% if dat_afternoon_weather_description == 'broken clouds' or dat_afternoon_weather_description == 'overcast clouds' or dat_afternoon_weather_description == 'few clouds' or dat_afternoon_weather_description == 'scattered clouds'%}
+                            <img class="img-weather" src="{% static 'images/hidden_sun.png' %}" alt="hidden_sun">
+                        {% elif  dat_afternoon_weather_description == 'clear sky'%}
+                            <img class="img-weather" src="{% static 'images/sun.png' %}" alt="sun">
+                        {% elif  dat_afternoon_weather_description == 'rain' or dat_afternoon_weather_description == 'shower rain' or dat_afternoon_weather_description == 'light rain' %}
+                            <img class="img-weather" src="{% static 'images/rain.png' %}" alt="rain">
+                        {% elif  dat_afternoon_weather_description == 'snow'%}
+                            <img class="img-weather" src="{% static 'images/rain.png' %}" alt="rain">
+                        {% elif  dat_afternoon_weather_description == 'thunderstorm'%}
+                            <img class="img-weather" src="{% static 'images/rain.png' %}" alt="rain">
+                        {% else %}
+                            <img class="img-weather" src="{% static 'images/sun.png' %}" alt="sun">
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
         </div>
-        {% if weather_description == 'broken clouds' or weather_description == 'overcast clouds'%}
-            <img class="weather-type" src="{% static 'images/broken_clouds.png' %}" alt="Cloudy">
-        {% elif weather_description == 'clear sky' %}
-            <img class="weather-type" src="{% static 'images/clear_sky.jpg' %}" alt="Rainy">
-        {% elif weather_description == 'few clouds' %}
-            <img class="weather-type" src="{% static 'images/few_clouds.jpg' %}" alt="Sunny">
-        {% elif weather_description == 'rain' %}
-            <img class="weather-type" src="{% static 'images/rain.jpg' %}" alt="Sunny">
-        {% elif weather_description == 'scattered clouds' %}
-            <img class="weather-type" src="{% static 'images/scattered_clouds.jpg' %}" alt="Sunny">
-        {% elif weather_description == 'shower rain' %}
-            <img class="weather-type" src="{% static 'images/shower_rain.jpg' %}" alt="Sunny">
-        {% elif weather_description == 'snow' %}
-            <img class="weather-type" src="{% static 'images/snow.jpg' %}" alt="Sunny">
-        {% else %}
-            <img class="weather-type" src="{% static 'images/thunderstorm.jpg' %}" alt="Weather">
-        {% endif %}
-    </div>
 </div>
 {% endblock %}

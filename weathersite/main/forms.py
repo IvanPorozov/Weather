@@ -4,7 +4,7 @@ from django import forms
 
 
 class CityForm(forms.Form):
-    city = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    city = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}), label='')
 
 # class EncryptionForm(forms.ModelForm):
 #     class Meta:
