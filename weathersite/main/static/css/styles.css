@@ -96,14 +96,25 @@ header {
     box-shadow: 5px 5px 10px #a9a9a9;
 }
 
-.weather-block{
+.weather-block {
     display: flex;
     justify-content: space-between;
 }
 
-.img-weather{
+.img-weather, .img-sunrise-sunset{
     height: 75px;
     width: 75px;
+}
+
+.img-wind{
+    height: 40px;
+    width: 40px;
+    padding: 35px 40px 5px 40px;
+}
+
+.img-sunrise-sunset{
+    padding: 6px;
+    padding-right: 18px;
 }
 
 .img-block{
@@ -112,4 +123,70 @@ header {
 
 .text-block{
     padding: 4px 0px 4px 10px;
+}
+
+
+.about-weather{
+    display: flex;
+    justify-content: space-between;
+    width: 98.6%;
+    padding: 2px 5px;
+    margin-top: 20px;
+    height: 120px;
+}
+
+.weather_by_time{
+    margin-right: 5px;
+    padding: 5px;
+    padding-left: 7px;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 5px 5px 10px #a9a9a9;
+    width: 100%
+}
+
+.location_info{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    padding-left: 7px;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 5px 5px 10px #a9a9a9;
+    width: 30%
+}
+
+.text-sunset-sunrise{
+    padding: 12px;
+    padding-left: 18px;
+}
+
+.weather_by_time{
+    display: flex;
+    padding: 5px;
+    padding-left: 7px;
+    width: 97%
+}
+.main-weather-info, .min-max-temp {
+    padding: 10px 15px 10px 15px;
+}
+
+.wind {
+    margin: 12px 15px 10px 15px;
+}
+
+.main-weather-info {
+    padding-bottom: 7px;
+}
+
+.images {
+    height: 50px;
+    width: 50px;
+    padding: 25px 40px 5px 40px;
+}
+
+.thermometer {
+    height: 60px;
+    width: 60px;
+    padding: 25px 35px 5px 40px;
 }

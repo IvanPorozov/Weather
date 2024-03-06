@@ -20,8 +20,8 @@ months = {
 }
 
 
-
 def get_weather(city_name):
+    import datetime
     url = f'http://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}'
     response = requests.get(url)
     data = response.json()
@@ -30,9 +30,20 @@ def get_weather(city_name):
         temp = round(data['main']['temp'] - 273.15)
         lat = data['coord']['lat']
         lon = data['coord']['lon']
+        wind_speed = data['wind']['speed']
+        gust = data['wind']['gust']
+        pressure = data['main']['pressure']
+        humidity = data['main']['humidity']
+
+
         four_days_url = f'http://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={api_key}'
         four_days_response = requests.get(four_days_url)
         four_days_data = four_days_response.json()
+
+        sunrise_time = datetime.datetime.fromtimestamp(four_days_data['city']['sunrise'])
+        sunset_time = datetime.datetime.fromtimestamp(four_days_data['city']['sunset'])
+        sunrise = sunrise_time.strftime('%H:%M')
+        sunset = sunset_time.strftime('%H:%M')
 
         # Today
         today_weather = (
@@ -111,10 +122,35 @@ def get_weather(city_name):
 
         return today_weather, today_afternoon_weather, today_night_weather, tomorrow_morning_weather, \
             tomorrow_afternoon_weather, tomorrow_night_weather, day_after_tomorrow_morning_weather, \
-            day_after_tomorrow_afternoon_weather, day_after_tomorrow_night_weather, temp, city
+            day_after_tomorrow_afternoon_weather, day_after_tomorrow_night_weather, temp, sunrise, sunset, wind_speed,\
+            gust, pressure, humidity, city
 
     else:
-        return None, None, None, None, None, None, None, None, None, None, 'City not found'
+        temp = None
+        sunrise = None
+        sunset = None
+        wind_speed = None
+        gust = None
+        pressure = None
+        humidity = None
+
+        today_weather = (None, None, None, None, None)
+        today_afternoon_weather = (None, None, None, None, None)
+        today_night_weather = (None, None, None, None, None)
+
+        tomorrow_morning_weather = (None, None, None, None, None)
+        tomorrow_afternoon_weather = (None, None, None, None, None)
+        tomorrow_night_weather = (None, None, None, None, None)
+
+        day_after_tomorrow_morning_weather = (None, None, None, None, None)
+        day_after_tomorrow_afternoon_weather = (None, None, None, None, None)
+        day_after_tomorrow_night_weather = (None, None, None, None, None)
+
+        return today_weather, today_afternoon_weather, today_night_weather, tomorrow_morning_weather, \
+            tomorrow_afternoon_weather, tomorrow_night_weather, day_after_tomorrow_morning_weather, \
+            day_after_tomorrow_afternoon_weather, day_after_tomorrow_night_weather, temp, sunrise, wind_speed,\
+            gust, pressure, humidity, sunset, \
+            'City not found'
 
 
 def get_current_date():
