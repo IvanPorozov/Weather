@@ -1,2 +1,3 @@
 # Weather
-![image](https://github.com/IvanPorozov/Weather/assets/139009015/dcba1691-047f-49a6-94c7-b2b882e7d457)
+![image](https://github.com/IvanPorozov/Weather/assets/139009015/f948d03a-49aa-41df-a2aa-5e3e4df23fbf)
+
