@@ -31,7 +31,7 @@ def get_weather(city_name):
         lat = data['coord']['lat']
         lon = data['coord']['lon']
         wind_speed = data['wind']['speed']
-        gust = data['wind']['gust']
+        deg = data['wind']['deg']
         pressure = data['main']['pressure']
         humidity = data['main']['humidity']
 
@@ -123,14 +123,14 @@ def get_weather(city_name):
         return today_weather, today_afternoon_weather, today_night_weather, tomorrow_morning_weather, \
             tomorrow_afternoon_weather, tomorrow_night_weather, day_after_tomorrow_morning_weather, \
             day_after_tomorrow_afternoon_weather, day_after_tomorrow_night_weather, temp, sunrise, sunset, wind_speed,\
-            gust, pressure, humidity, city
+            deg, pressure, humidity, city
 
     else:
         temp = None
         sunrise = None
         sunset = None
         wind_speed = None
-        gust = None
+        deg = None
         pressure = None
         humidity = None
 
@@ -149,7 +149,7 @@ def get_weather(city_name):
         return today_weather, today_afternoon_weather, today_night_weather, tomorrow_morning_weather, \
             tomorrow_afternoon_weather, tomorrow_night_weather, day_after_tomorrow_morning_weather, \
             day_after_tomorrow_afternoon_weather, day_after_tomorrow_night_weather, temp, sunrise, wind_speed,\
-            gust, pressure, humidity, sunset, \
+            deg, pressure, humidity, sunset, \
             'City not found'
 
 

@@ -135,7 +135,7 @@ header {
     height: 120px;
 }
 
-.weather_by_time{
+.weather_by_time, .weather-walk{
     margin-right: 5px;
     padding: 5px;
     padding-left: 7px;
@@ -143,6 +143,11 @@ header {
     background: white;
     box-shadow: 5px 5px 10px #a9a9a9;
     width: 100%
+}
+
+.weather-walk{
+    margin: 15px 10px 0px 5px;
+    width: 97.9%;
 }
 
 .location_info{

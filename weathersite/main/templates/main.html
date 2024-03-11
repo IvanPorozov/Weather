@@ -100,7 +100,7 @@
         <div class="weather_by_time">
             <div class="wind">
                 <p>speed: {{ wind_speed }} m/s</p>
-                <p>gust: {{ gust }} m/s</p>
+                <p>deg: {{ gust }}°</p>
             </div>
             <img class="img-wind" src="{% static 'images/wind.png' %}" alt="wind">
             <div class="main-weather-info">
@@ -109,8 +109,8 @@
             </div>
             <img class="images" src="{% static 'images/images.png' %}" alt="images">
             <div class="min-max-temp">
-                <p>temp_max: {{ today_temp_max }}°</p>
-                <p>temp_min: {{ today_temp_min }}°</p>
+                <p>temp max: {{ today_temp_max }}°</p>
+                <p>temp min: {{ today_temp_min }}°</p>
             </div>
             <img class="thermometer" src="{% static 'images/thermometer.png' %}" alt="thermometer">
         </div>
